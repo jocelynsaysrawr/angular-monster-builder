@@ -10,6 +10,7 @@ import { ArmsComponent } from './navigation/arms/arms.component';
 import { BodyComponent } from './navigation/body/body.component';
 import { LegsComponent } from './navigation/legs/legs.component';
 import { DisplayComponent } from './display/display.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,10 +22,11 @@ import { DisplayComponent } from './display/display.component';
     ArmsComponent,
     BodyComponent,
     LegsComponent,
-    DisplayComponent
+    DisplayComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
