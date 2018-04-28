@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LegsComponent implements OnInit {
 
-  constructor() { }
+  allowNewLegs = false;
+  legsCreationStatus = 'No legs were created!';
+
+  constructor() {
+    setTimeout(() => {
+      this.allowNewLegs = true;
+    }, 2000);
+  }
 
   ngOnInit() {
+  }
+
+  onCreateLegs() {
+    this.legsCreationStatus = 'Legs were added!!!!';
   }
 
 }
