@@ -4,8 +4,13 @@
 
   <br>
   <input type="text" [(ngModel)]="name">
+  <hr>
+
   <button type="button" class="btn btn-danger btn-sm" [disabled]="!allowNewLegs" (click)="onCreateLegs()">Add Some Monster Legs</button>
+
   <button type="button" class="btn btn-danger btn-sm" [disabled]="!allowNewLegs" (click)="onCreateLegs()">Remove Some Monster Legs</button>
+
+
   <br>
   <br>
   <p>{{legsCreationStatus}}</p>
