@@ -1,7 +1,7 @@
 <div class="sidenav">
   <button class="dropdown-btn" (click)="onShowNavigation('head')">Heads</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'head'}">
-    <a *ngFor='let head of allHeads' href="#" (click)="selectHead(head.id)">{{head.name}}</a>
+    <a *ngFor='let head of allHeads' href="#" (click)="headservice.selectHead(head.id)">{{head.name}}</a>
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('body')">Body</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'body'}">

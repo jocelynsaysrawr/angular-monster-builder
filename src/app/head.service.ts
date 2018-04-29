@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class HeadService {
@@ -40,10 +41,13 @@ export class HeadService {
     }
   ];
 
+  headSource = new Subject<any>();
+  head$ = this.headSource.asObservable();
+
   selectedHead = this.allHeads[0];
 
   selectHead(headID) {
     this.selectedHead = this.allHeads.filter(e => e.id === Number(headID))[0];
-    console.log(this.selectedHead);
+    this.headSource.next(this.selectedHead);
   }
 }
