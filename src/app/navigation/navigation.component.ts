@@ -7,12 +7,16 @@ import { Component, OnInit } from "@angular/core";
 })
 export class NavigationComponent implements OnInit {
   dropdownStatus: boolean = false;
+  activeButton: string = "";
 
   constructor() {}
 
   ngOnInit() {}
 
-  onShowNavigation() {
+  onShowNavigation(buttonName: string) {
     this.dropdownStatus = this.dropdownStatus ? false : true;
+    this.activeButton = buttonName;
+
+    console.log("activeButton: ", this.activeButton);
   }
 }
