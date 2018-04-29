@@ -1,3 +1,11 @@
-<div *ngFor='let head of allHeads'>
-  <li>{{head}}</li>
-</div>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-primary">
+    Heads
+    <ul class='list-group'>
+      <div *ngFor='let myhead of allHeads'>
+        <li class="list-group-item list-group-item-secondary">{{myhead.name}}</li>
+      </div>
+    </ul>
+  </li>
+
+</ul>

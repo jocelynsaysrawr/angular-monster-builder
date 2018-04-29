@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { HeadService } from "../../head.service";
 
 @Component({
-  selector: 'app-heads',
-  templateUrl: './heads.component.html',
-  styleUrls: ['./heads.component.scss']
+  selector: "app-heads",
+  templateUrl: "./heads.component.html",
+  styleUrls: ["./heads.component.scss"]
 })
 export class HeadsComponent implements OnInit {
-  allHeads = ['Big Head', 'Small Head', 'Little Head', 'Fat Head'];
+  allHeads: Array<Object>;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public headservice: HeadService) {
+    this.allHeads = headservice.allHeads;
   }
 
+  ngOnInit() {}
 }
