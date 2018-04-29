@@ -8,9 +8,7 @@ import { Component, OnInit } from "@angular/core";
 export class HeadsComponent implements OnInit {
   allHeads: Array<Object>;
 
-  constructor(public headservice: HeadService) {
-    this.allHeads = headservice.allHeads;
-  }
+  constructor() {}
 
   ngOnInit() {}
 }

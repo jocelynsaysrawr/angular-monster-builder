@@ -10,9 +10,11 @@ export class NavigationComponent implements OnInit {
   dropdownStatus: boolean = false;
   activeButton: string = "";
   allHeads: Array<Object>;
+  selectHead: Function;
 
   constructor(public headservice: HeadService) {
     this.allHeads = headservice.allHeads;
+    this.selectHead = headservice.selectHead;
   }
 
   ngOnInit() {}
