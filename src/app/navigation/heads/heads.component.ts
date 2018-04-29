@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { HeadService } from "../../head.service";
 
 @Component({
   selector: "app-heads",

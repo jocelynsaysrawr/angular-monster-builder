@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HeadService } from "../head.service";
 
 @Component({
   selector: "app-navigation",
@@ -7,12 +8,19 @@ import { Component, OnInit } from "@angular/core";
 })
 export class NavigationComponent implements OnInit {
   dropdownStatus: boolean = false;
+  activeButton: string = "";
+  allHeads: Array<Object>;
 
-  constructor() {}
+  constructor(public headservice: HeadService) {
+    this.allHeads = headservice.allHeads;
+  }
 
   ngOnInit() {}
 
-  onShowNavigation() {
+  onShowNavigation(buttonName: string) {
     this.dropdownStatus = this.dropdownStatus ? false : true;
+    this.activeButton = buttonName;
+
+    console.log("activeButton: ", this.activeButton);
   }
 }
