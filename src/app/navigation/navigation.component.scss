@@ -50,15 +50,34 @@
   overflow-x: hidden;
   padding-top: 20px;
 
-  a {
+  a,
+  .dropdown-btn {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
+    font-size: 20px;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
 
     &:hover {
       color: #f1f1f1;
     }
   }
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+.show {
+  display: block;
+  border-top: 1px solid rgb(253, 84, 6);
 }

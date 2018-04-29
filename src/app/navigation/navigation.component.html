@@ -8,8 +8,32 @@
 </div> -->
 
 <div class="sidenav">
-  <a href="#">Head</a>
-  <a href="#">Body</a>
-  <a href="#">Arms</a>
-  <a href="#">Legs</a>
+  <button class="dropdown-btn" (click)="onShowNavigation('head')">Head</button>
+  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'head'}">
+    <a href="#">Head 1</a>
+    <a href="#">Head 2</a>
+    <a href="#">Head 3</a>
+  </div>
+  <button class="dropdown-btn" (click)="onShowNavigation('body')">Body</button>
+  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'body'}">
+    <a href="#">Body 1</a>
+    <a href="#">Body 2</a>
+    <a href="#">Body 3</a>
+  </div>
+  <button class="dropdown-btn" (click)="onShowNavigation('arms')">Arms</button>
+  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">
+    <a href="#">Arms 1</a>
+    <a href="#">Arms 2</a>
+    <a href="#">Arms 3</a>
+  </div>
+  <button class="dropdown-btn" (click)="onShowNavigation('legs')">Legs</button>
+  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'legs'}">
+    <a href="#">Legs 1</a>
+    <a href="#">Legs 2</a>
+    <a href="#">Legs 3</a>
+  </div>
+  <!-- <a href="#">Head</a> -->
+  <!-- <a href="#">Body</a> -->
+  <!-- <a href="#">Arms</a>
+  <a href="#">Legs</a> -->
 </div>
