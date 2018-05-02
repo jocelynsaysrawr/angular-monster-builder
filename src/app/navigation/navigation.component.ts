@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
+import { SelectService } from "../select.service";
 
 @Component({
   selector: "app-navigation",
@@ -11,10 +12,14 @@ export class NavigationComponent implements OnInit {
   activeButton: string = "";
   allHeads: Array<Object>;
   selectHead: Function;
+  allArms: Array<Object>;
+  selectArms: Function;
 
-  constructor(public headservice: HeadService) {
-    this.allHeads = headservice.allHeads;
-    this.selectHead = headservice.selectHead;
+  constructor(public selectservice: SelectService) {
+    this.allHeads = selectservice.allHeads;
+    this.selectHead = selectservice.selectHead;
+    this.allArms = selectservice.allArms;
+    this.selectArms = selectservice.selectArms;
   }
 
   ngOnInit() {}

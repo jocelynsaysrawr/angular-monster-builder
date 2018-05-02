@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
+import { SelectService } from "../select.service";
 
 @Component({
   selector: "app-display",
@@ -8,13 +9,18 @@ import { HeadService } from "../head.service";
 })
 export class DisplayComponent implements OnInit {
   selectedHead: Object;
-  constructor(public headservice: HeadService) {
-    this.selectedHead = headservice.selectedHead;
+  selectedArms: Object;
+  constructor(public selectservice: SelectService) {
+    this.selectedHead = selectservice.selectedHead;
+    this.selectedArms = selectservice.selectedArms;
   }
 
   ngOnInit() {
-    this.headservice.head$.subscribe(head => {
+    this.selectservice.head$.subscribe(head => {
       this.selectedHead = head;
+    });
+    this.selectservice.arm$.subscribe(arm => {
+      this.selectedArms = arm;
     });
   }
 }
