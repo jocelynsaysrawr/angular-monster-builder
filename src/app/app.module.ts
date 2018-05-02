@@ -10,6 +10,8 @@ import { BodyComponent } from "./navigation/body/body.component";
 import { LegsComponent } from "./navigation/legs/legs.component";
 import { DisplayComponent } from "./display/display.component";
 import { HeadService } from "./head.service";
+import { ArmsService } from "./navigation/arms/arms.service";
+import { SelectService } from "./select.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { HeadService } from "./head.service";
     DisplayComponent
   ],
   imports: [BrowserModule],
-  providers: [HeadService],
+  providers: [HeadService, SelectService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
