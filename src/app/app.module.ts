@@ -5,7 +5,7 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { HeadsComponent } from "./navigation/heads/heads.component";
-import { ArmsComponent } from "./navigation/arms/arms.component";
+//import { ArmsComponent } from "./navigation/arms/arms.component";
 import { BodyComponent } from "./navigation/body/body.component";
 import { LegsComponent } from "./navigation/legs/legs.component";
 import { DisplayComponent } from "./display/display.component";
@@ -19,7 +19,7 @@ import { SelectService } from "./select.service";
     HeaderComponent,
     NavigationComponent,
     HeadsComponent,
-    ArmsComponent,
+    // ArmsComponent,
     BodyComponent,
     LegsComponent,
     DisplayComponent
