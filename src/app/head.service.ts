@@ -17,7 +17,14 @@ export class HeadService {
   headSource = new Subject<any>();
   head$ = this.headSource.asObservable();
 
-  selectedHead = this.allHeads[0];
+  selectedHead = {
+    id: 0,
+    name: "Big Head",
+    url: "https://thumbs.dreamstime.com/b/big-head-34-2530121.jpg",
+    hp: 7,
+    attack: 7,
+    defence: 7
+  };
 
   getAllHeads(): Observable<IHead[]> {
     return this.http.get<IHead[]>(this._url).catch(this.errorHandler);
@@ -31,15 +38,19 @@ export class HeadService {
     this.http
       .get<IHead[]>(this._url)
       .pipe(
-        map((headArray: IHead[]) => headArray.filter((head: IHead) => head.id === headID)[0]),
-        tap(console.log)
+        map(
+          (headArray: IHead[]) =>
+            headArray.filter((head: IHead) => head.id === headID)[0]
+        )
       )
-      .subscribe(headObj => {
-        console.log("data ", headObj);
-        this.selectedHead = headObj;
-        this.headSource.next(headObj);
-      },(err) => {
-        console.log(err);
-      }
+      .subscribe(
+        headObj => {
+          this.selectedHead = headObj;
+          this.headSource.next(headObj);
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 }
