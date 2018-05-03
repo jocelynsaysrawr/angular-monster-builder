@@ -11,6 +11,7 @@ import { BodyComponent } from './navigation/body/body.component';
 import { LegsComponent } from './navigation/legs/legs.component';
 import { DisplayComponent } from './display/display.component';
 import { FormsModule } from '@angular/forms';
+import { LegsService } from './navigation/legs/legs.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LegsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

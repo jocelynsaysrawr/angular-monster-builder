@@ -1,19 +1,45 @@
 <div class="text-center">
-  <h1>Add some legs</h1>
+  <h1>Dr. Frankenstein, please choose some legs for the
+    <strong>monster...</strong>
+  </h1>
   <hr>
 
+  <br> Name your monster:
   <br>
   <input type="text" [(ngModel)]="name">
   <hr>
 
-  <button type="button" class="btn btn-danger btn-sm" [disabled]="!allowNewLegs" (click)="onCreateLegs()">Add Some Monster Legs</button>
+  <button type="button" class="btn btn-danger btn-sm" (click)="onCreateLegs()">Add Some Monster Legs</button>
 
-  <button type="button" class="btn btn-danger btn-sm" [disabled]="!allowNewLegs" (click)="onCreateLegs()">Remove Some Monster Legs</button>
+  <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteLegs()" [disabled]="!allowNewLegs">Remove Some Monster Legs</button>
 
 
   <br>
   <br>
   <p>{{legsCreationStatus}}</p>
   <hr>
-  <p>{{name}}</p>
+
+  <div class="nametag">
+    Hello My Name is
+    <br>
+    <h2>
+      {{name}}
+    </h2>
+  </div>
+
+
+
+
+  <!-- <input type="text" class="form-control" (input)="updateThing($event)">
+<p>
+  {{testValue}}
+</p> -->
+
+  <!-- <p *ngIf="testthings" ; else secondtest>poopies</p>
+
+  <ng-template #secondtest>
+    <p>second test here</p>
+  </ng-template> -->
+
+  {{LegsService.legs}}
 </div>
