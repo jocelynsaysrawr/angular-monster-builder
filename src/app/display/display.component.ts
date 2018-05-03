@@ -8,17 +8,20 @@ import { SelectService } from "../select.service";
   styleUrls: ["./display.component.scss"]
 })
 export class DisplayComponent implements OnInit {
-  selectedHead: Object;
+  // selectedHead: Object;
   selectedArms: Object;
-  constructor(public selectservice: SelectService) {
-    this.selectedHead = selectservice.selectedHead;
+  constructor(
+    public selectservice: SelectService
+  ) // private _headService: HeadService
+  {
+    // this.selectedHead = _headService.selectedHead;
     this.selectedArms = selectservice.selectedArms;
   }
 
   ngOnInit() {
-    this.selectservice.head$.subscribe(head => {
-      this.selectedHead = head;
-    });
+    // this._headService.head$.subscribe(head => {
+    //   this.selectedHead = head;
+    // });
     this.selectservice.arm$.subscribe(arm => {
       this.selectedArms = arm;
     });

@@ -1,53 +1,45 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs/Subject";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { IHead } from "./models/head.model";
+import { Observable } from "rxjs/Observable";
+import { map, filter, tap } from "rxjs/operators";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
 
 @Injectable()
 export class HeadService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  allHeads = [
-    {
-      id: 0,
-      name: "Big Head",
-      url: "https://thumbs.dreamstime.com/b/big-head-34-2530121.jpg",
-      hp: 7,
-      attack: 7,
-      defence: 7
-    },
-    {
-      id: 1,
-      name: "Little Head",
-      url: "https://i.ytimg.com/vi/rEWe7hQXBv8/maxresdefault.jpg",
-      hp: 3,
-      attack: 3,
-      defence: 2
-    },
-    {
-      id: 2,
-      name: "Wierd Head",
-      url: "https://www.askideas.com/media/17/Funny-Weird-Head-Mask-Image.jpg",
-      hp: 9,
-      attack: 9,
-      defence: 9
-    },
-    {
-      id: 3,
-      name: "Shaq Head",
-      url:
-        "https://www.celebrity-cutouts.co.uk/wp-content/uploads/2017/02/shaquille-oneal-celebrity-mask.jpg",
-      hp: 7,
-      attack: 7,
-      defence: 7
-    }
-  ];
+  private _url: string = "/assets/heads.json";
+  private allHeads = [];
 
   headSource = new Subject<any>();
   head$ = this.headSource.asObservable();
 
   selectedHead = this.allHeads[0];
 
+  getAllHeads(): Observable<IHead[]> {
+    return this.http.get<IHead[]>(this._url).catch(this.errorHandler);
+  }
+
+  errorHandler(error: HttpErrorResponse) {
+    return Observable.throw(error.message || "Server Error");
+  }
+
   selectHead(headID) {
-    this.selectedHead = this.allHeads.filter(e => e.id === Number(headID))[0];
-    this.headSource.next(this.selectedHead);
+    this.http
+      .get<IHead[]>(this._url)
+      .pipe(
+        map((headArray: IHead[]) => headArray.filter((head: IHead) => head.id === headID)[0]),
+        tap(console.log)
+      )
+      .subscribe(headObj => {
+        console.log("data ", headObj);
+        this.selectedHead = headObj;
+        this.headSource.next(headObj);
+      },(err) => {
+        console.log(err);
+      }
   }
 }

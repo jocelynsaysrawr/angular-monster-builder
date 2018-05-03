@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
-import { SelectService } from "../select.service";
 
 @Component({
   selector: "app-navigation",
@@ -12,22 +11,20 @@ export class NavigationComponent implements OnInit {
   activeButton: string = "";
   allHeads: Array<Object>;
   selectHead: Function;
-  allArms: Array<Object>;
-  selectArms: Function;
+  errorMsg;
 
-  constructor(public selectservice: SelectService) {
-    this.allHeads = selectservice.allHeads;
-    this.selectHead = selectservice.selectHead;
-    this.allArms = selectservice.allArms;
-    this.selectArms = selectservice.selectArms;
-  }
-
-  ngOnInit() {}
+  constructor(private _headService: HeadService) {}
 
   onShowNavigation(buttonName: string) {
     this.dropdownStatus = this.dropdownStatus ? false : true;
     this.activeButton = buttonName;
 
     console.log("activeButton: ", this.activeButton);
+  }
+
+  ngOnInit() {
+    this._headService
+      .getAllHeads()
+      .subscribe(data => (this.allHeads = data), error => console.log(error));
   }
 }

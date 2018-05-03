@@ -10,8 +10,9 @@ import { BodyComponent } from "./navigation/body/body.component";
 import { LegsComponent } from "./navigation/legs/legs.component";
 import { DisplayComponent } from "./display/display.component";
 import { HeadService } from "./head.service";
-import { ArmsService } from "./navigation/arms/arms.service";
+// import { ArmsService } from "./navigation/arms/arms.service";
 import { SelectService } from "./select.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { SelectService } from "./select.service";
     LegsComponent,
     DisplayComponent
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule],
   providers: [HeadService, SelectService],
   bootstrap: [AppComponent]
 })
