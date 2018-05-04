@@ -2,18 +2,16 @@
   <button class="dropdown-btn" (click)="onShowNavigation('head')">Heads</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'head'}">
 
-    <a *ngFor='let head of allHeads' href="#" (click)="selectservice.selectHead(head.id)">{{head.name}}</a>
+    <a *ngFor='let head of allHeads' href="#" (click)="headService.selectHead(head.id)">{{head.name}}</a>
 
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('body')">Body</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'body'}">
-    <a href="#">Body 1</a>
-    <a href="#">Body 2</a>
-    <a href="#">Body 3</a>
+    <a *ngFor='let body of bodies' (click)="bodyService.setCurrentBody(body.id)">{{body.name}}</a>
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('arms')">Arms</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">
-    <a *ngFor='let arm of allArms' href="#" (click)="selectservice.selectArms(arm.id)">
+    <a *ngFor='let arm of allArms' href="#" (click)="armService.selectArms(arm.id)">
       {{arm.name}} </a>
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('legs')">Legs</button>
