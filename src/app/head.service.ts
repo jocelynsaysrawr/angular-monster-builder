@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs/Subject";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { IHead } from "./models/head.model";
 import { Observable } from "rxjs/Observable";
@@ -9,22 +9,20 @@ import "rxjs/add/observable/throw";
 
 @Injectable()
 export class HeadService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.http.get<IHead[]>(this._url).subscribe(value => {
+      this.allHeads = value;
+      this.selectHead(1);
+    });
+  }
 
-  private _url: string = "/assets/heads.json";
-  private allHeads = [];
+  _url: string = "http://localhost:3000";
+  allHeads: IHead[];
 
-  headSource = new Subject<any>();
+  headSource = new BehaviorSubject<any>("");
   head$ = this.headSource.asObservable();
 
-  selectedHead = {
-    id: 0,
-    name: "Big Head",
-    url: "https://thumbs.dreamstime.com/b/big-head-34-2530121.jpg",
-    hp: 7,
-    attack: 7,
-    defence: 7
-  };
+  selectedHead: IHead;
 
   getAllHeads(): Observable<IHead[]> {
     return this.http.get<IHead[]>(this._url).catch(this.errorHandler);
@@ -35,22 +33,9 @@ export class HeadService {
   }
 
   selectHead(headID) {
-    this.http
-      .get<IHead[]>(this._url)
-      .pipe(
-        map(
-          (headArray: IHead[]) =>
-            headArray.filter((head: IHead) => head.id === headID)[0]
-        )
-      )
-      .subscribe(
-        headObj => {
-          this.selectedHead = headObj;
-          this.headSource.next(headObj);
-        },
-        err => {
-          console.log(err);
-        }
-      );
+    this.selectedHead = this.allHeads.filter(
+      head => head.head_id === Number(headID)
+    )[0];
+    this.headSource.next(this.selectedHead);
   }
 }

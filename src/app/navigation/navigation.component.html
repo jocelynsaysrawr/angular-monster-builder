@@ -2,7 +2,7 @@
   <button class="dropdown-btn" (click)="onShowNavigation('head')">Heads</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'head'}">
 
-    <a *ngFor='let head of allHeads' href="#" (click)="_headService.selectHead(head.id)">{{head.name}}</a>
+    <a *ngFor='let head of allHeads' href="#" (click)="_headService.selectHead(head.head_id)">{{head.head_name}}</a>
     {{errorMsg}}
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('body')">Body</button>
@@ -12,10 +12,10 @@
     <a href="#">Body 3</a>
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('arms')">Arms</button>
-  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">
+  <!-- <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">
     <a *ngFor='let arm of allArms' href="#" (click)="selectservice.selectArms(arm.id)">
       {{arm.name}} </a>
-  </div>
+  </div> -->
   <button class="dropdown-btn" (click)="onShowNavigation('legs')">Legs</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'legs'}">
     <a href="#">Legs 1</a>

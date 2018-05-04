@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
 import { SelectService } from "../select.service";
+import { IHead } from "../models/head.model";
+import { Observable } from "rxjs/Observable";
+import { map, tap } from "rxjs/operators";
 
 @Component({
   selector: "app-display",
@@ -8,22 +11,11 @@ import { SelectService } from "../select.service";
   styleUrls: ["./display.component.scss"]
 })
 export class DisplayComponent implements OnInit {
-  selectedHead: Object;
-  selectedArms: Object;
-  constructor(
-    public selectservice: SelectService,
-    private _headService: HeadService
-  ) {
-    this.selectedHead = _headService.selectedHead;
-    this.selectedArms = selectservice.selectedArms;
+  selectedHead: IHead;
+  headSource$: Observable<string>;
+  constructor(public _headService: HeadService) {
+    this.headSource$ = _headService.head$.pipe(map(value => value.head_src));
   }
 
-  ngOnInit() {
-    this._headService.head$.subscribe(head => {
-      this.selectedHead = head;
-    });
-    this.selectservice.arm$.subscribe(arm => {
-      this.selectedArms = arm;
-    });
-  }
+  ngOnInit() {}
 }
