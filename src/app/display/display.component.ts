@@ -11,15 +11,11 @@ export class DisplayComponent implements OnInit {
   selectedArms: Object;
   constructor(public headService: HeadService) {
     this.selectedHead = headService.selectedHead;
-    // this.selectedArms = headService.selectedArms;
   }
 
   ngOnInit() {
     this.headService.head$.subscribe(head => {
       this.selectedHead = head;
     });
-    // this.headService.arm$.subscribe(arm => {
-    //   this.selectedArms = arm;
-    // });
   }
 }

@@ -12,6 +12,7 @@ import { DisplayComponent } from "./display/display.component";
 import { HeadService } from "./head.service";
 //import { ArmsService } from "./navigation/arms/arms.service";
 import { SelectService } from "./select.service";
+import { LegsService } from "./legs.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { SelectService } from "./select.service";
     DisplayComponent,
   ],
   imports: [BrowserModule],
-  providers: [HeadService, SelectService],
+  providers: [HeadService, SelectService, LegsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
