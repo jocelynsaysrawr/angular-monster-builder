@@ -3,7 +3,7 @@ import { HeadService } from "../head.service";
 import { SelectService } from "../select.service";
 import { IHead } from "../models/head.model";
 import { Observable } from "rxjs/Observable";
-import { map, tap } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-display",
