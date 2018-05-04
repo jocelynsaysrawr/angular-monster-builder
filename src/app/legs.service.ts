@@ -5,9 +5,10 @@ export class LegsService {
 
   constructor() { }
 
-  legs: string[] = ['mark', 'steve', 'jesse', 'jocelyn'];
-
-  getFirstLeg() {
-    return this.legs[3];
+  showLegs() {
+    return [
+      { id: 1, url: "fakeshit.com" },
+      { id: 2, url: "morefakeshit.com" }
+    ]
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { HeadService } from "../head.service";
+// import { ArmService } from "../arm.service";
+import { SelectService } from "../select.service";
 
 @Component({
   selector: "app-navigation",
@@ -8,10 +11,19 @@ import { Component, OnInit } from "@angular/core";
 export class NavigationComponent implements OnInit {
   dropdownStatus: boolean = false;
   activeButton: string = "";
+  allHeads: Array<Object>;
+  selectHead: Function;
+  allArms: Array<Object>;
+  selectArms: Function;
 
-  constructor() {}
+  constructor(public headService: HeadService) {
+    this.allHeads = headService.allHeads;
+    this.selectHead = headService.selectHead;
+    // this.allArms = armService.allArms;
+    // this.selectArms = armService.selectArms;
+  }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onShowNavigation(buttonName: string) {
     this.dropdownStatus = this.dropdownStatus ? false : true;
