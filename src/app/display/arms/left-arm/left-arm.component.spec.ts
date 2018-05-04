@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArmsComponent } from './arms.component';
+import { LeftArmComponent } from './left-arm.component';
 
-describe('ArmsComponent', () => {
-  let component: ArmsComponent;
-  let fixture: ComponentFixture<ArmsComponent>;
+describe('LeftArmComponent', () => {
+  let component: LeftArmComponent;
+  let fixture: ComponentFixture<LeftArmComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArmsComponent ]
+      declarations: [ LeftArmComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArmsComponent);
+    fixture = TestBed.createComponent(LeftArmComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
