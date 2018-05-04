@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs/Subject";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class ArmService {
-  constructor() {}
-
   allArms = [
     {
       id: 0,
@@ -37,15 +36,19 @@ export class ArmService {
     }
   ];
 
-  armSource = new Subject<any>();
+  armSource = new BehaviorSubject<any>("");
   arm$ = this.armSource.asObservable();
 
   selectedArms = this.allArms[0];
+
+  constructor() {
+    this.selectArms(this.selectedArms.id);
+  }
+
   selectArms(armsId) {
     this.selectedArms = this.allArms.filter(
       arm => arm.id === Number(armsId)
     )[0];
     this.armSource.next(this.selectedArms);
   }
-  3;
 }

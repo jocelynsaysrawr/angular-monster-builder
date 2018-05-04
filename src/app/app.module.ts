@@ -11,7 +11,7 @@ import { LegsComponent } from "./display/legs/legs.component";
 import { DisplayComponent } from "./display/display.component";
 import { HeadService } from "./head.service";
 import { ArmService } from "./arm.service";
-import { SelectService } from "./select.service";
+import { BodyService } from "./body.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { SelectService } from "./select.service";
     DisplayComponent
   ],
   imports: [BrowserModule],
-  providers: [HeadService, ArmService],
+  providers: [HeadService, ArmService, BodyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
