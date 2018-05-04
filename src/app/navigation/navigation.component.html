@@ -7,9 +7,7 @@
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('body')">Body</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'body'}">
-    <a href="#">Body 1</a>
-    <a href="#">Body 2</a>
-    <a href="#">Body 3</a>
+    <a *ngFor='let body of bodies' (click)="bodyService.setCurrentBody(body.id)">{{body.name}}</a>
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('arms')">Arms</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
 import { SelectService } from "../select.service";
+import { BodyService } from "../body.service";
 
 @Component({
   selector: "app-display",
@@ -10,7 +11,10 @@ import { SelectService } from "../select.service";
 export class DisplayComponent implements OnInit {
   selectedHead: Object;
   selectedArms: Object;
-  constructor(public selectservice: SelectService) {
+  constructor(
+    public selectservice: SelectService,
+    public bodyService: BodyService
+  ) {
     this.selectedHead = selectservice.selectedHead;
     this.selectedArms = selectservice.selectedArms;
   }

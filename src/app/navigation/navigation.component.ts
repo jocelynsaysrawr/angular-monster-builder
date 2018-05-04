@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
 import { SelectService } from "../select.service";
+import { BodyService } from "../body.service";
 
 @Component({
   selector: "app-navigation",
@@ -14,12 +15,19 @@ export class NavigationComponent implements OnInit {
   selectHead: Function;
   allArms: Array<Object>;
   selectArms: Function;
+  bodies: Array<Object>;
+  setCurrentBody: Function;
 
-  constructor(public selectservice: SelectService) {
+  constructor(
+    public selectservice: SelectService,
+    public bodyService: BodyService
+  ) {
     this.allHeads = selectservice.allHeads;
     this.selectHead = selectservice.selectHead;
     this.allArms = selectservice.allArms;
     this.selectArms = selectservice.selectArms;
+    this.bodies = bodyService.bodies;
+    this.setCurrentBody = bodyService.setCurrentBody;
   }
 
   ngOnInit() {}
