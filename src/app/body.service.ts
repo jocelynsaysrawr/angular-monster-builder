@@ -4,10 +4,6 @@ import { BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class BodyService {
-  constructor() {
-    this.setCurrentBody(this.currentBody.id);
-  }
-
   bodies = [
     {
       id: 101,
@@ -25,6 +21,10 @@ export class BodyService {
   body$ = this.bodySrc.asObservable();
 
   currentBody = this.bodies[0];
+
+  constructor() {
+    this.setCurrentBody(this.currentBody.id);
+  }
 
   setCurrentBody(bodyId) {
     console.log("should be setting body here", bodyId);
