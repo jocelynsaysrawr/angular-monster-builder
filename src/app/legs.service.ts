@@ -4,7 +4,6 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class LegsService {
 
-  constructor() { }
 
   legs = [
     { legs_id: 1, name: "muscle leg", legs_source: "https://www.t-nation.com/system/publishing/articles/10004697/original/A-New-Trick-for-Building-Your-Legs.jpg?1491942177" },
@@ -15,6 +14,11 @@ export class LegsService {
   legs$ = this.legsSrc.asObservable();
 
   currentLegs = this.legs[0];
+
+
+  constructor() {
+    this.setCurrentLegs(this.currentLegs.legs_id);
+  }
 
   setCurrentLegs(legsID) {
     console.log("heres the legs_id", legsID)
