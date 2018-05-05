@@ -2,6 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
 import { ArmService } from "../arm.service";
 import { BodyService } from "../body.service";
+import { SelectService } from "../select.service";
+import { IHead } from "../models/head.model";
+import { Observable } from "rxjs/Observable";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-display",
@@ -9,8 +13,9 @@ import { BodyService } from "../body.service";
   styleUrls: ["./display.component.scss"]
 })
 export class DisplayComponent implements OnInit {
-  selectedHead: Object;
   selectedArms: Object;
+  selectedHead: IHead;
+  headSource$: Observable<string>;
   constructor(
     public headService: HeadService,
     public armService: ArmService,
@@ -18,12 +23,10 @@ export class DisplayComponent implements OnInit {
   ) {
     this.selectedHead = headService.selectedHead;
     this.selectedArms = armService.selectedArms;
+    this.headSource$ = headService.head$.pipe(map(value => value.head_src));
   }
 
   ngOnInit() {
-    this.headService.head$.subscribe(head => {
-      this.selectedHead = head;
-    });
     this.armService.arm$.subscribe(arm => {
       this.selectedArms = arm;
     });

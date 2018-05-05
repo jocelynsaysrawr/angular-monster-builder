@@ -1,4 +1,7 @@
-<img src="{{selectedHead.url}}" alt="">
-<app-arms></app-arms>
-<app-arms></app-arms>
+<img src="{{headSource$ | async}}" alt="">
+<app-left-arm></app-left-arm>
+<app-right-arm></app-right-arm>
 <app-body></app-body>
+
+<!-- <img src="{{selectedArms.url}}" alt="">
+<img src="{{selectedArms.url}}" alt=""> -->

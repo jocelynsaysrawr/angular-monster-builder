@@ -5,13 +5,17 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { HeadsComponent } from "./display/heads/heads.component";
-import { ArmsComponent } from "./display/arms/arms.component";
+import { RightArmComponent } from "./display/arms/right-arm/right-arm.component";
+import { LeftArmComponent } from "./display/arms/left-arm/left-arm.component";
 import { BodyComponent } from "./display/body/body.component";
 import { LegsComponent } from "./display/legs/legs.component";
 import { DisplayComponent } from "./display/display.component";
 import { HeadService } from "./head.service";
 import { ArmService } from "./arm.service";
 import { BodyService } from "./body.service";
+// import { ArmsService } from "./navigation/arms/arms.service";
+import { SelectService } from "./select.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,13 +23,14 @@ import { BodyService } from "./body.service";
     HeaderComponent,
     NavigationComponent,
     HeadsComponent,
-    ArmsComponent,
+    RightArmComponent,
+    LeftArmComponent,
     BodyComponent,
     LegsComponent,
     DisplayComponent
   ],
-  imports: [BrowserModule],
-  providers: [HeadService, ArmService, BodyService],
+  imports: [BrowserModule, HttpClientModule],
+  providers: [HeadService, ArmService, BodyService, SelectService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

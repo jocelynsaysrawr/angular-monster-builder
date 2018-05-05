@@ -17,6 +17,7 @@ export class NavigationComponent implements OnInit {
   selectArms: Function;
   bodies: Array<Object>;
   setCurrentBody: Function;
+  errorMsg;
 
   constructor(
     public headService: HeadService,
@@ -31,12 +32,16 @@ export class NavigationComponent implements OnInit {
     this.setCurrentBody = bodyService.setCurrentBody;
   }
 
-  ngOnInit() {}
-
   onShowNavigation(buttonName: string) {
     this.dropdownStatus = this.dropdownStatus ? false : true;
     this.activeButton = buttonName;
 
     console.log("activeButton: ", this.activeButton);
+  }
+
+  ngOnInit() {
+    this.headService
+      .getAllHeads()
+      .subscribe(data => (this.allHeads = data), error => console.log(error));
   }
 }
