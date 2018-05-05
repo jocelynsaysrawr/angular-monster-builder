@@ -13,11 +13,12 @@
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">
     <a *ngFor='let arm of allArms' href="#" (click)="armService.selectArms(arm.id)">
       {{arm.name}} </a>
-  </div> -->
+  </div>
   <button class="dropdown-btn" (click)="onShowNavigation('legs')">Legs</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'legs'}">
-    <a href="#">Legs 1</a>
-    <a href="#">Legs 2</a>
-    <a href="#">Legs 3</a>
+
+    <a *ngFor="let leg of legs" (click)="legsService.setCurrentLegs(leg.legs_id)">
+      {{leg.name}}
+    </a>
   </div>
 </div>
