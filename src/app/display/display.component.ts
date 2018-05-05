@@ -14,16 +14,8 @@ import { map } from "rxjs/operators";
 })
 export class DisplayComponent implements OnInit {
   selectedArms: Object;
-  selectedHead: IHead;
-  headSource$: Observable<string>;
-  constructor(
-    public headService: HeadService,
-    public armService: ArmService,
-    public bodyService: BodyService
-  ) {
-    this.selectedHead = headService.selectedHead;
+  constructor(public armService: ArmService, public bodyService: BodyService) {
     this.selectedArms = armService.selectedArms;
-    this.headSource$ = headService.head$.pipe(map(value => value.head_src));
   }
 
   ngOnInit() {
