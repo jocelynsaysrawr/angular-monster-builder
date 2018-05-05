@@ -16,6 +16,7 @@ import { BodyService } from "./body.service";
 // import { ArmsService } from "./navigation/arms/arms.service";
 import { SelectService } from "./select.service";
 import { HttpClientModule } from "@angular/common/http";
+import { LegsService } from "./legs.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { HttpClientModule } from "@angular/common/http";
     DisplayComponent
   ],
   imports: [BrowserModule, HttpClientModule],
-  providers: [HeadService, ArmService, BodyService, SelectService],
+  providers: [HeadService, ArmService, BodyService, SelectService, LegsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

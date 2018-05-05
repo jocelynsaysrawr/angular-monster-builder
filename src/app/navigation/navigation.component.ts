@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HeadService } from "../head.service";
 import { ArmService } from "../arm.service";
 import { BodyService } from "../body.service";
+import { LegsService } from "../legs.service";
 
 @Component({
   selector: "app-navigation",
@@ -17,12 +18,15 @@ export class NavigationComponent implements OnInit {
   selectArms: Function;
   bodies: Array<Object>;
   setCurrentBody: Function;
+  legs: Array<Object>;
+  setCurrentLegs: Function;
   errorMsg;
 
   constructor(
     public headService: HeadService,
     public armService: ArmService,
-    public bodyService: BodyService
+    public bodyService: BodyService,
+    public legsService: LegsService
   ) {
     this.allHeads = headService.allHeads;
     this.selectHead = headService.selectHead;
@@ -30,6 +34,8 @@ export class NavigationComponent implements OnInit {
     this.selectArms = armService.selectArms;
     this.bodies = bodyService.bodies;
     this.setCurrentBody = bodyService.setCurrentBody;
+    this.legs = legsService.legs;
+    this.setCurrentLegs = legsService.setCurrentLegs;
   }
 
   onShowNavigation(buttonName: string) {

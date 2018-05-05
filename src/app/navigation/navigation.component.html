@@ -2,8 +2,13 @@
   <button class="dropdown-btn" (click)="onShowNavigation('head')">Heads</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'head'}">
 
+<<<<<<< HEAD
     <a *ngFor='let head of allHeads' href="#" (click)="headService.selectHead(head.head_id)">{{head.head_name}}</a>
     {{errorMsg}}
+=======
+    <a *ngFor='let head of allHeads' href="#" (click)="headService.selectHead(head.id)">{{head.name}}</a>
+
+>>>>>>> feature-legs
   </div>
   <button class="dropdown-btn" (click)="onShowNavigation('body')">Body</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'body'}">
@@ -16,8 +21,9 @@
   </div> -->
   <button class="dropdown-btn" (click)="onShowNavigation('legs')">Legs</button>
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'legs'}">
-    <a href="#">Legs 1</a>
-    <a href="#">Legs 2</a>
-    <a href="#">Legs 3</a>
+
+    <a *ngFor="let leg of legs" (click)="legsService.setCurrentLegs(leg.legs_id)">
+      {{leg.name}}
+    </a>
   </div>
 </div>
