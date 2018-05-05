@@ -1,3 +1,41 @@
-.navbar {
-  margin-bottom: 0px;
+// .navbar {
+//   padding: 0;
+//   margin-left: 0px;
+//   margin-bottom: 0px;
+// }
+
+.header-bgimg {
+  background-image: url("../../assets/header/Sea_Monster_Chet_Van_Duzer.jpg");
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.caption {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+
+  .border {
+    opacity: 0.8;
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    word-wrap: break-word;
+    white-space: normal;
+    display: block;
+    border-radius: 3px;
+  }
 }
