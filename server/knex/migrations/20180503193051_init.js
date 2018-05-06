@@ -68,9 +68,14 @@ exports.up = function(knex, Promise) {
         .inTable("bodys")
         .onDelete("cascade");
       table
-        .integer("arm_id")
-        .references("arm_id")
-        .inTable("arms")
+        .integer("left_arm_id")
+        .references("left_arm_id")
+        .inTable("left_arms")
+        .onDelete("cascade");
+      table
+        .integer("right_arm_id")
+        .references("right_arm_id")
+        .inTable("right_arms")
         .onDelete("cascade");
       table
         .integer("leg_id")
