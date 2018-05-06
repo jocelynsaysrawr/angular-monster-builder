@@ -1,16 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { IHead } from "../../models/head.model";
-import { Observable } from "rxjs/Observable";
-import { HeadService } from "../../head.service";
-import { map } from "rxjs/operators";
+import { Component, OnInit } from '@angular/core';
+import { IHead } from '../../models/head.model';
+import { Observable } from 'rxjs/Observable';
+import { HeadService } from '../../services/head.service';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: "app-heads",
+  selector: 'app-heads',
   template: `<img src="{{headSource$ | async}}">`,
-  styleUrls: ["./heads.component.scss"]
+  styleUrls: ['./heads.component.scss']
 })
 export class HeadsComponent implements OnInit {
-  selectedArms: Object;
   selectedHead: IHead;
   headSource$: Observable<string>;
   constructor(public headService: HeadService) {
