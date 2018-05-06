@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { NavigationComponent } from "./navigation/navigation.component";
-import { HeadsComponent } from "./display/heads/heads.component";
+//import { HeadsComponent } from "./display/heads/heads.component";
 import { RightArmComponent } from "./display/arms/right-arm/right-arm.component";
 import { LeftArmComponent } from "./display/arms/left-arm/left-arm.component";
 import { BodyComponent } from "./display/body/body.component";
@@ -17,15 +17,15 @@ import { BodyService } from "./body.service";
 import { SelectService } from "./select.service";
 import { HttpClientModule } from "@angular/common/http";
 import { LegsService } from "./legs.service";
-import { MoveableDirective } from './moveable.directive';
-import { DraggableDirective } from './draggable.directive';
+import { MoveableDirective } from "./draggable/moveable.directive";
+import { DraggableDirective } from "./draggable/draggable.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavigationComponent,
-    HeadsComponent,
+    // HeadsComponent,
     RightArmComponent,
     LeftArmComponent,
     BodyComponent,

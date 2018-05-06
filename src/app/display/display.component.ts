@@ -21,6 +21,7 @@ export class DisplayComponent implements OnInit {
     public armService: ArmService,
     public bodyService: BodyService
   ) {
+    this.selectedHead = headService.selectedHead;
     this.selectedArms = armService.selectedArms;
     this.headSource$ = headService.head$.pipe(map(value => value.head_src));
   }

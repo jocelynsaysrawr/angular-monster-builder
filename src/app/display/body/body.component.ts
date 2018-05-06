@@ -5,7 +5,7 @@ import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-body",
-  template: `<img src="{{ imageSrc$ | async }}" alt="">`,
+  template: `<img src="{{ imageSrc$ | async }}" alt="" appMoveable>`,
   styleUrls: ["./body.component.scss"]
 })
 export class BodyComponent implements OnInit {
