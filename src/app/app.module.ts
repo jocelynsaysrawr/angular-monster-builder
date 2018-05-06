@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { NavigationComponent } from "./navigation/navigation.component";
-//import { HeadsComponent } from "./display/heads/heads.component";
+import { HeadsComponent } from "./display/heads/heads.component";
 import { RightArmComponent } from "./display/arms/right-arm/right-arm.component";
 import { LeftArmComponent } from "./display/arms/left-arm/left-arm.component";
 import { BodyComponent } from "./display/body/body.component";
@@ -24,7 +24,7 @@ import { LegService } from "./services/leg.service";
     AppComponent,
     HeaderComponent,
     NavigationComponent,
-    // HeadsComponent,
+    HeadsComponent,
     RightArmComponent,
     LeftArmComponent,
     BodyComponent,

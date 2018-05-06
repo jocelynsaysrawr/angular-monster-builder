@@ -16,7 +16,7 @@ export class RightArmService {
     });
   }
 
-  _url: string = `${dbUrl}/right-arm`;
+  _url: string = `http://localhost:3000/right-arm`;
   allRightArms: IRightArm[];
 
   rightArmSource = new BehaviorSubject<any>("");

@@ -4,7 +4,6 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { ILeftArm } from "../models/left-arm.model";
 import { Observable } from "rxjs/Observable";
 import { map, filter, tap } from "rxjs/operators";
-import { dbUrl } from "./url/databaseURL";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 
@@ -17,7 +16,7 @@ export class LeftArmService {
     });
   }
 
-  _url: string = `${dbUrl}/left-arm`;
+  _url: string = `http://localhost:3000/left-arm`;
   allLeftArms: ILeftArm[];
 
   leftArmSource = new BehaviorSubject<any>("");
