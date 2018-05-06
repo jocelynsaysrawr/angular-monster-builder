@@ -62,9 +62,18 @@ export class NavigationComponent implements OnInit {
     this.bodyService
       .getAllBodys()
       .subscribe(data => (this.allBodys = data), error => console.log(error));
-    this.armService
-      .getAllArms()
-      .subscribe(data => (this.allArms = data), error => console.log(error));
+    this.leftArmService
+      .getAllLeftArms()
+      .subscribe(
+        data => (this.allLeftArms = data),
+        error => console.log(error)
+      );
+    this.rightArmService
+      .getAllRightArms()
+      .subscribe(
+        data => (this.allRightArms = data),
+        error => console.log(error)
+      );
     this.legService
       .getAllLegs()
       .subscribe(data => (this.allLegs = data), error => console.log(error));
