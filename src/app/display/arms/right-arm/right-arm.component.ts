@@ -1,20 +1,22 @@
 import { Component, OnInit } from "@angular/core";
-import { ArmService } from "../../../arm.service";
+import { IRightArm } from "../../../models/right-arm.model";
 import { Observable } from "rxjs/Observable";
+import { RightArmService } from "../../../services/right-arm.service";
 import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-right-arm",
-  templateUrl: "./right-arm.component.html",
+  template: `<img src="{{armSource$ | async}}">`,
   styleUrls: ["./right-arm.component.scss"]
 })
 export class RightArmComponent implements OnInit {
-  selectedArms: Object;
-  RArmSrc$: Observable<string>;
-
-  constructor(public armService: ArmService) {
-    this.selectedArms = armService.selectedArms;
-    this.RArmSrc$ = armService.arm$.pipe(map(value => value.RArmSrc));
+  selectedRightArm: IRightArm;
+  rightArmSource$: Observable<string>;
+  constructor(public RightArmService: RightArmService) {
+    this.selectedRightArm = RightArmService.selectedRightArm;
+    this.rightArmSource$ = RightArmService.rightArm$.pipe(
+      map(value => value.right_arm_src)
+    );
   }
 
   ngOnInit() {}

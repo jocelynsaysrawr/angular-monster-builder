@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { IHead } from "./models/head.model";
-import { Observable } from "rxjs/Observable";
-import { map, filter, tap } from "rxjs/operators";
-import "rxjs/add/operator/catch";
-import "rxjs/add/observable/throw";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { IHead } from '../models/head.model';
+import { Observable } from 'rxjs/Observable';
+import { map, filter, tap } from 'rxjs/operators';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class HeadService {
@@ -16,10 +16,10 @@ export class HeadService {
     });
   }
 
-  _url: string = "http://localhost:3000";
+  _url: string = 'http://localhost:3000/head';
   allHeads: IHead[];
 
-  headSource = new BehaviorSubject<any>("");
+  headSource = new BehaviorSubject<any>('');
   head$ = this.headSource.asObservable();
 
   selectedHead: IHead;
@@ -29,7 +29,7 @@ export class HeadService {
   }
 
   errorHandler(error: HttpErrorResponse) {
-    return Observable.throw(error.message || "Server Error");
+    return Observable.throw(error.message || 'Server Error');
   }
 
   selectHead(headID) {
