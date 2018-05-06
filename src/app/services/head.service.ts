@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IHead } from '../models/head.model';
 import { Observable } from 'rxjs/Observable';
 import { map, filter, tap } from 'rxjs/operators';
+import { dbUrl } from './url/databaseURL';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
@@ -16,7 +17,7 @@ export class HeadService {
     });
   }
 
-  _url: string = 'http://localhost:3000/head';
+  _url: string = `${dbUrl}/head`;
   allHeads: IHead[];
 
   headSource = new BehaviorSubject<any>('');
