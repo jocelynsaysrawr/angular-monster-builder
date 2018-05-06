@@ -1,24 +1,33 @@
 <div class="sidenav">
-  <button class="dropdown-btn" (click)="onShowNavigation('head')">Heads</button>
-  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'head'}">
 
+  <button class="dropdown-btn" (click)="onShowNavigation('head')">Heads</button>
+
+  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'head'}">
     <a *ngFor='let head of allHeads' href="#" (click)="headService.selectHead(head.head_id)">{{head.head_name}}</a>
     {{errorMsg}}
   </div>
+
   <button class="dropdown-btn" (click)="onShowNavigation('body')">Body</button>
+
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'body'}">
-    <a *ngFor='let body of bodies' (click)="bodyService.setCurrentBody(body.id)">{{body.name}}</a>
+    <a *ngFor='let body of allBodys' href="#" (click)="bodyService.selectBody(body.body_id)">{{body.body_name}}</a>
+    {{errorMsg}}
   </div>
+
   <button class="dropdown-btn" (click)="onShowNavigation('arms')">Arms</button>
+
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">
-    <a *ngFor='let arm of allArms' href="#" (click)="armService.selectArms(arm.id)">
-      {{arm.name}} </a>
+    <a *ngFor='let arm of allArms' href="#" (click)="armService.selectArm(arm.arm_id)">{{arm.arm_name}}</a>
+    {{errorMsg}}
   </div>
+
   <button class="dropdown-btn" (click)="onShowNavigation('legs')">Legs</button>
+
   <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'legs'}">
 
-    <a *ngFor="let leg of legs" (click)="legsService.setCurrentLegs(leg.legs_id)">
-      {{leg.name}}
-    </a>
+    <a *ngFor='let leg of allLegs' href="#" (click)="legService.selectLeg(leg.leg_id)">{{leg.leg_name}}</a>
+    {{errorMsg}}
+
   </div>
+
 </div>
