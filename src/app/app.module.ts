@@ -17,6 +17,8 @@ import { BodyService } from "./body.service";
 import { SelectService } from "./select.service";
 import { HttpClientModule } from "@angular/common/http";
 import { LegsService } from "./legs.service";
+import { MoveableDirective } from './moveable.directive';
+import { DraggableDirective } from './draggable.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { LegsService } from "./legs.service";
     LeftArmComponent,
     BodyComponent,
     LegsComponent,
-    DisplayComponent
+    DisplayComponent,
+    MoveableDirective,
+    DraggableDirective
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [HeadService, ArmService, BodyService, SelectService, LegsService],
