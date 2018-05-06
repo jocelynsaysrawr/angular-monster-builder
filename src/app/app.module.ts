@@ -5,14 +5,17 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { HeadsComponent } from "./display/heads/heads.component";
-import { LeftArmComponent } from "./display/arms/left-arm/left-arm.component";
 import { RightArmComponent } from "./display/arms/right-arm/right-arm.component";
+import { LeftArmComponent } from "./display/arms/left-arm/left-arm.component";
 import { BodyComponent } from "./display/body/body.component";
 import { LegsComponent } from "./display/legs/legs.component";
 import { DisplayComponent } from "./display/display.component";
-import { HeadService } from "./head.service";
-import { ArmService } from "./arm.service";
-import { BodyService } from "./body.service";
+import { HeadService } from "./services/head.service";
+import { LeftArmService } from "./services/left-arm.service";
+import { RightArmService } from "./services/right-arm.service";
+import { BodyService } from "./services/body.service";
+import { HttpClientModule } from "@angular/common/http";
+import { LegService } from "./services/leg.service";
 
 @NgModule({
   declarations: [
@@ -20,14 +23,20 @@ import { BodyService } from "./body.service";
     HeaderComponent,
     NavigationComponent,
     HeadsComponent,
-    LeftArmComponent,
     RightArmComponent,
+    LeftArmComponent,
     BodyComponent,
     LegsComponent,
     DisplayComponent
   ],
-  imports: [BrowserModule],
-  providers: [HeadService, ArmService, BodyService],
+  imports: [BrowserModule, HttpClientModule],
+  providers: [
+    HeadService,
+    LeftArmService,
+    RightArmService,
+    BodyService,
+    LegService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
