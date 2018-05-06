@@ -34,7 +34,7 @@ export class LeftArmService {
     return Observable.throw(error.message || "Server Error");
   }
 
-  selectArm(leftArmID) {
+  selectLeftArm(leftArmID) {
     this.selectedLeftArm = this.allLeftArms.filter(
       leftArm => leftArm.left_arm_id === Number(leftArmID)
     )[0];

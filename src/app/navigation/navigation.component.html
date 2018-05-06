@@ -14,10 +14,17 @@
     {{errorMsg}}
   </div>
 
-  <button class="dropdown-btn" (click)="onShowNavigation('arms')">Arms</button>
+  <button class="dropdown-btn" (click)="onShowNavigation('left-arms')">Left Arms</button>
 
-  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'arms'}">
-    <a *ngFor='let arm of allArms' href="#" (click)="armService.selectArm(arm.arm_id)">{{arm.arm_name}}</a>
+  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'left-arms'}">
+    <a *ngFor='let leftArm of allLeftArms' href="#" (click)="leftArmService.selectLeftArm(leftArm.left_arm_id)">{{leftArm.left_arm_name}}</a>
+    {{errorMsg}}
+  </div>
+
+  <button class="dropdown-btn" (click)="onShowNavigation('right-arms')">Right Arms</button>
+
+  <div class="dropdown-container" [ngClass]="{show: dropdownStatus === true && activeButton === 'right-arms'}">
+    <a *ngFor='let rightArm of allRightArms' href="#" (click)="rightArmService.selectRightArm(rightArm.right_arm_id)">{{rightArm.right_arm_name}}</a>
     {{errorMsg}}
   </div>
 
