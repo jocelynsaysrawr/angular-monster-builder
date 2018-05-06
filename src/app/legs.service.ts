@@ -18,7 +18,7 @@ export class LegsService {
   legs$ = this.legsSrc.asObservable();
 
   currentLegs = this.legs[0];
-
+  public state: string = 'small'
 
   constructor() {
     this.setCurrentLegs(this.currentLegs.legs_id);
@@ -30,6 +30,12 @@ export class LegsService {
       legs => legs.legs_id === Number(legsID)
     )[0];
     this.legsSrc.next(this.currentLegs);
+    this.animateMe();
+  }
+
+  animateMe() {
+    this.state = (this.state === 'small' ? 'large' : 'small');
+    console.log(this.state);
   }
 
 }

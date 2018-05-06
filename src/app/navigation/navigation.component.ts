@@ -38,13 +38,13 @@ export class NavigationComponent implements OnInit {
   legs: Array<Object>;
   setCurrentLegs: Function;
   errorMsg;
+  state: string;
+  animateMe: Function;
 
-  // state: string = 'small';
-
-  animateMe() {
-    console.log("clicking things works????");
-    // this.state = (this.state === 'small' ? 'large' : 'small');
-  }
+  // animateMe() {
+  //   this.state = (this.state === 'small' ? 'large' : 'small');
+  //   console.log(this.state);
+  // }
 
   constructor(
     public headService: HeadService,
@@ -60,6 +60,8 @@ export class NavigationComponent implements OnInit {
     this.setCurrentBody = bodyService.setCurrentBody;
     this.legs = legsService.legs;
     this.setCurrentLegs = legsService.setCurrentLegs;
+    this.state = legsService.state;
+    this.animateMe = legsService.animateMe;
   }
 
   onShowNavigation(buttonName: string) {

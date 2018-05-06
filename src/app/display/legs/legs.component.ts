@@ -9,7 +9,7 @@ import { trigger, state, style, transition, animate, keyframes, query, stagger }
   selector: 'app-legs',
   template: `
   <div align="center">
-    <img src="{{ legs_source$ | async }}" [@legsAnimation]="state" (click)="animateMe()">
+    <img src="{{ legs_source$ | async }}" [@legsAnimation]="legsService.state" (click)="legsService.animateMe()">
   </div>
   `,
   styleUrls: ['./legs.component.scss'],
@@ -37,14 +37,10 @@ import { trigger, state, style, transition, animate, keyframes, query, stagger }
 export class LegsComponent implements OnInit {
   currentLegs: Object;
   legs_source$: Observable<string>;
-  state: string = 'small';
-
-  animateMe() {
-    this.state = (this.state === 'small' ? 'large' : 'small');
-  }
-
+  state: string;
 
   constructor(public legsService: LegsService) {
+    this.state = legsService.state;
     this.currentLegs = legsService.currentLegs;
     this.legs_source$ = legsService.legs$.pipe(map(value => value.legs_source));
   }
