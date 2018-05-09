@@ -17,7 +17,7 @@ import { HeadService } from './services/head.service';
 import { LeftArmService } from './services/left-arm.service';
 import { RightArmService } from './services/right-arm.service';
 import { BodyService } from './services/body.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MoveableDirective } from './draggable/moveable.directive';
 import { DraggableDirective } from './draggable/draggable.directive';
 import { LegService } from './services/leg.service';
@@ -25,6 +25,12 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './events/events.component';
 import { SpecialEventsComponent } from './special-events/special-events.component';
+import { MainComponent } from './main/main.component';
+import { AuthenticationService } from './services/authentication.service';
+import { EventService } from './services/event.service';
+import { AuthenticationGuard } from './guards/authentication.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { MonstersComponent } from './monsters/monsters.component';
 
 @NgModule({
   declarations: [
@@ -42,10 +48,20 @@ import { SpecialEventsComponent } from './special-events/special-events.componen
     RegisterComponent,
     LoginComponent,
     EventsComponent,
-    SpecialEventsComponent
+    SpecialEventsComponent,
+    MainComponent,
+    MonstersComponent
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    AuthenticationGuard,
+    AuthenticationService,
+    EventService,
     HeadService,
     LeftArmService,
     RightArmService,

@@ -1,12 +1,8 @@
-<div class="container">
-  <div class="header">
-    <app-header>
-    </app-header>
-  </div>
-
-  <div class="display">
-    <app-navigation></app-navigation>
-
-    <app-display></app-display>
-  </div>
+<div class="nav navbar">
+    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink='/login' routerLinkActive="active">Login</a>
+    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink='/register' routerLinkActive="active">Register</a>
+    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" routerLink='/logout' routerLinkActive="active"
+        (click)='_authService.logoutUser()'>Log Out</a>
 </div>
+
+<router-outlet></router-outlet>

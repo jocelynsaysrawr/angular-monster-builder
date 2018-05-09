@@ -4,12 +4,14 @@ import { EventsComponent } from './events/events.component';
 import { SpecialEventsComponent } from './special-events/special-events.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MainComponent } from './main/main.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
+import { MonstersComponent } from './monsters/monsters.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/events',
-    pathMatch: 'full'
+    component: MainComponent
   },
   {
     path: 'events',
@@ -17,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'special',
-    component: SpecialEventsComponent
+    component: SpecialEventsComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'login',
@@ -26,6 +29,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'monsters',
+    component: MonstersComponent,
+    canActivate: [AuthenticationGuard]
   }
 ];
 

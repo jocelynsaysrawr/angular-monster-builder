@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.display {
+  height: 100vh;
+  grid-column-start: 1;
+  grid-column-end: 12;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+app-navigation {
+  max-width: 250px;
+  margin: 0;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+app-display {
+  grid-column-start: 3;
+  grid-column-end: 12;
+}
