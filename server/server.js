@@ -12,8 +12,6 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
 
 app.post('/register', (req, res) => {
-  ///////////////////////////////// TO DO /////////////////////////
-  // NEED TO CHECK IF USERNAME ALREADY EXISTS IN DATABASE
   let user = req.body;
   knex
     .insert(user)
@@ -63,6 +61,7 @@ app.get('/events', (req, res) => {
 
 app.get('/monsters', verifyToken, (req, res) => {
   // const { username, password } = req.body;
+  console.log('running');
   const username = 'steveninouye';
   const password = 'password';
   knex('users')
@@ -83,7 +82,7 @@ app.get('/monsters', verifyToken, (req, res) => {
     )
     .then(data => {
       console.log(data);
-      res.send(data[0]);
+      res.send(data);
     });
   // res.json(events);
 });

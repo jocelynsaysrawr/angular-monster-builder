@@ -1,3 +1,14 @@
-<p>
-  monsters works!
-</p>
+<div class="row mt-5" *ngFor="let monster of userMonsters; let i = index">
+  <div class="col-md-4 mb-3">
+    <div class="car text-center">
+      <div class="car-body">
+        <h5 class="card-title">{{monster.username}}</h5>
+        <p class="card-text">{{monster.password}}</p>
+      </div>
+
+      <button (click)='loadMonster(monster)' type="button" class="btn btn-primary float-right">Select</button>
+
+    </div>
+  </div>
+</div>
+<div class="container">

@@ -23,14 +23,12 @@ import { DraggableDirective } from './draggable/draggable.directive';
 import { LegService } from './services/leg.service';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { EventsComponent } from './events/events.component';
-import { SpecialEventsComponent } from './special-events/special-events.component';
 import { MainComponent } from './main/main.component';
 import { AuthenticationService } from './services/authentication.service';
-import { EventService } from './services/event.service';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MonstersComponent } from './monsters/monsters.component';
+import { UserMonsterService } from './services/user-monster.service';
 
 @NgModule({
   declarations: [
@@ -47,8 +45,6 @@ import { MonstersComponent } from './monsters/monsters.component';
     DraggableDirective,
     RegisterComponent,
     LoginComponent,
-    EventsComponent,
-    SpecialEventsComponent,
     MainComponent,
     MonstersComponent
   ],
@@ -59,9 +55,9 @@ import { MonstersComponent } from './monsters/monsters.component';
       useClass: TokenInterceptorService,
       multi: true
     },
+    UserMonsterService,
     AuthenticationGuard,
     AuthenticationService,
-    EventService,
     HeadService,
     LeftArmService,
     RightArmService,

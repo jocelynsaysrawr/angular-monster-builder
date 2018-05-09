@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this._auth.loginUser(this.loginUserData).subscribe(
       data => {
-        console.log(data);
         localStorage.setItem('token', data.token);
         this._router.navigate(['/monsters']);
       },

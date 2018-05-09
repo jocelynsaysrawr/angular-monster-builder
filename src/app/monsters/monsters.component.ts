@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserMonsterService } from '../services/user-monster.service';
 
 @Component({
   selector: 'app-monsters',
@@ -7,12 +8,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./monsters.component.scss']
 })
 export class MonstersComponent implements OnInit {
-  data: any;
-  constructor(private http: HttpClient) {
-    this.http.get<any>('http://localhost:3000/monsters').subscribe(data => {
-      console.log(data);
+  userMonsters: any;
+  selectedMonster: any;
+  constructor(private _userMonsters: UserMonsterService) {}
+
+  ngOnInit() {
+    this._userMonsters.getMonsters().subscribe(data => {
+      this.userMonsters = data;
     });
   }
-
-  ngOnInit() {}
+  loadMonster(monster) {
+    this._userMonsters.setSelectedMonster(monster);
+    this.selectedMonster = monster;
+  }
 }

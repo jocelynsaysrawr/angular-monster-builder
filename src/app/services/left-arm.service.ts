@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { ILeftArm } from "../models/left-arm.model";
-import { Observable } from "rxjs/Observable";
-import { map, filter, tap } from "rxjs/operators";
-import "rxjs/add/operator/catch";
-import "rxjs/add/observable/throw";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ILeftArm } from '../models/left-arm.model';
+import { Observable } from 'rxjs/Observable';
+import { map, filter, tap } from 'rxjs/operators';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class LeftArmService {
@@ -19,7 +19,7 @@ export class LeftArmService {
   _url: string = `http://localhost:3000/left-arm`;
   allLeftArms: ILeftArm[];
 
-  leftArmSource = new BehaviorSubject<any>("");
+  leftArmSource = new BehaviorSubject<any>('');
   leftArm$ = this.leftArmSource.asObservable();
 
   selectedLeftArm: ILeftArm;
@@ -29,8 +29,8 @@ export class LeftArmService {
   }
 
   errorHandler(error: HttpErrorResponse) {
-    console.log("error is here");
-    return Observable.throw(error.message || "Server Error");
+    console.log('error is here');
+    return Observable.throw(error.message || 'Server Error');
   }
 
   selectLeftArm(leftArmID) {
