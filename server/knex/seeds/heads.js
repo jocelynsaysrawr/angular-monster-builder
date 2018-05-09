@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
         {
           head_name: 'Wierd Head',
           head_src:
-            'https://www.ask"id"eas.com/media/17/Funny-Weird-Head-Mask-Image.jpg'
+            'https://www.askideas.com/media/17/Funny-Weird-Head-Mask-Image.jpg'
           // head_hp: 9,
           // head_attack: 9,
           // head_defense: 9
