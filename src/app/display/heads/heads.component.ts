@@ -6,7 +6,8 @@ import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-heads",
-  template: `<img src="{{headSource$ | async}}">`
+  template: `<img src="{{headSource$ | async}}" appMoveable>`,
+  styleUrls: ["./heads.component.scss"]
 })
 export class HeadsComponent implements OnInit {
   selectedHead: IHead;

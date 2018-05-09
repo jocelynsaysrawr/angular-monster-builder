@@ -6,7 +6,7 @@ import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-left-arm",
-  template: `<img src="{{leftArmSource$ | async}}">`,
+  template: `<img src="{{leftArmSource$ | async}}" appMoveable>`,
   styleUrls: ["./left-arm.component.scss"]
 })
 export class LeftArmComponent implements OnInit {

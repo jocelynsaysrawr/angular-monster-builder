@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flushdb": "knex migrate:rollack ; knex migrage:latest ; knex seed:run"
   },
   "author": "",
   "license": "ISC",

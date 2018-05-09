@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ILeg } from '../../models/leg.model';
-import { Observable } from 'rxjs/Observable';
-import { LegService } from '../../services/leg.service';
-import { map } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { ILeg } from "../../models/leg.model";
+import { Observable } from "rxjs/Observable";
+import { LegService } from "../../services/leg.service";
+import { map } from "rxjs/operators";
 
 @Component({
-  selector: 'app-legs',
-  template: `<img src="{{legSource$ | async}}">`,
-  styleUrls: ['./legs.component.scss']
+  selector: "app-legs",
+  template: `<img src="{{legSource$ | async}}" appMoveable>`,
+  styleUrls: ["./legs.component.scss"]
 })
 export class LegsComponent implements OnInit {
   selectedArms: Object;

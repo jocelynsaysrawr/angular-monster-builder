@@ -90,7 +90,6 @@ exports.down = function(knex, Promise) {
     .dropTable("user_monsters")
     .dropTable("users")
     .dropTable("legs")
-    .dropTable("arms")
     .dropTable("left_arms")
     .dropTable("right_arms")
     .dropTable("bodys")

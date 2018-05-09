@@ -8,6 +8,7 @@ body {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: [row-1-start] 100% [row-1-end];
 }
 
 .display {
@@ -17,16 +18,20 @@ body {
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-gap: 0;
 }
 
 app-navigation {
   max-width: 250px;
   margin: 0;
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
 }
 
 app-display {
-  grid-column-start: 3;
-  grid-column-end: 12;
+  grid-column-start: 4;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  overflow: hidden;
 }
